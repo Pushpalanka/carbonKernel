@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>org.wso2.carbon</groupId>
+        <artifactId>carbon-parent</artifactId>
+        <version>4.2.0</version>
+	<relativePath>../../parent/pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>carbon-kernel-patch</artifactId>
+    <version>0011</version>
+    <packaging>pom</packaging>
+    <name>WSO2 Carbon Kernel Kernel Patch 0011</name>
+    <description>WSO2 Carbon Kernel Patch</description>
+    <url>http://wso2.org</url>
+
+    <modules>
+        <module>dependencies/transports/modules/jms</module>
+        <module>dependencies/axis2/modules/json</module>
+        <module>dependencies/orbit/axis2-json</module>
+        <module>core</module>
+        <module>distribution</module>
+    </modules>
+
+</project>

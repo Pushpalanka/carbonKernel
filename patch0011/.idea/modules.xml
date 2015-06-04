@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/distribution/WSO2-CARBON-PATCH-4.2.0.iml" filepath="$PROJECT_DIR$/distribution/WSO2-CARBON-PATCH-4.2.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dependencies/axis2/modules/json/axis2-json (1) (org.apache.axis2).iml" filepath="$PROJECT_DIR$/dependencies/axis2/modules/json/axis2-json (1) (org.apache.axis2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/dependencies/orbit/axis2-json/axis2-json (2) (org.apache.axis2.wso2).iml" filepath="$PROJECT_DIR$/dependencies/orbit/axis2-json/axis2-json (2) (org.apache.axis2.wso2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/dependencies/transports/modules/jms/axis2-transport-jms.iml" filepath="$PROJECT_DIR$/dependencies/transports/modules/jms/axis2-transport-jms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/carbon-kernel-core-patch.iml" filepath="$PROJECT_DIR$/core/carbon-kernel-core-patch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/carbon-kernel-patch.iml" filepath="$PROJECT_DIR$/carbon-kernel-patch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/org.wso2.carbon.core/4.2.0/org.wso2.carbon.core.iml" filepath="$PROJECT_DIR$/core/org.wso2.carbon.core/4.2.0/org.wso2.carbon.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/org.wso2.carbon.registry.core/org.wso2.carbon.registry.core.iml" filepath="$PROJECT_DIR$/core/org.wso2.carbon.registry.core/org.wso2.carbon.registry.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/org.wso2.carbon.ui/4.2.0/org.wso2.carbon.ui.iml" filepath="$PROJECT_DIR$/core/org.wso2.carbon.ui/4.2.0/org.wso2.carbon.ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/org.wso2.carbon.utils/4.2.0/org.wso2.carbon.utils.iml" filepath="$PROJECT_DIR$/core/org.wso2.carbon.utils/4.2.0/org.wso2.carbon.utils.iml" />
+    </modules>
+  </component>
+</project>
+
