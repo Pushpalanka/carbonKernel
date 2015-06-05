@@ -1381,6 +1381,54 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
 
     }
 
+    // todo: replace groupDN with groupID
+
+    public void addUsersToGroup(String groupDN, String[] users) throws UserStoreException {
+
+        if (users.length == 0) {
+            return;
+        }
+
+        // todo: create HGroupContext with groupId (or group name) instead of groupDN
+        LDAPHGroupContext ldaphGroupContext = (LDAPHGroupContext) createHGroupContext(groupDN);
+
+        DirContext mainDirContext = null;
+        DirContext groupContext = null;
+        
+        
+
+        try {
+            mainDirContext = this.connectionSource.getContext();
+            String searchBase = ldaphGroupContext.getSearchBase();
+
+            // replace the group search base and remove "," at the end
+            String groupRDN = StringUtils.chop(groupDN.replaceAll("(?i)" + searchBase, ""));
+            groupContext = (DirContext) mainDirContext.lookup(searchBase);
+            
+            String memberAttributeName = realmConfig.getUserStoreProperty(LDAPConstants.MEMBERSHIP_ATTRIBUTE);
+
+            Attributes modifyingAttribute = new BasicAttributes(true);
+            Attribute memberAttribute = new BasicAttribute(memberAttributeName);
+
+            // todo: iterate over all the users
+            String userNameDN = this.getNameInSpaceForUserName(users[0]);
+
+            memberAttribute.add(userNameDN);
+            modifyingAttribute.put(memberAttribute);
+            groupContext.modifyAttributes(groupRDN, 1, modifyingAttribute);
+
+        } catch (NamingException e) {
+            String errorMessage = "Error occurred while modifying user entry: " + users[0]
+                                  + " in LDAP group: " + groupDN;
+            log.error("LDAP Error", e);
+            throw new UserStoreException(errorMessage);
+        } finally {
+            JNDIUtil.closeContext(groupContext);
+            JNDIUtil.closeContext(mainDirContext);
+        }
+
+    }
+    
 
     /**
      * Update role list of user by writing to LDAP.
@@ -1395,6 +1443,9 @@ public class ReadWriteLDAPUserStoreManager extends ReadOnlyLDAPUserStoreManager 
     public void doUpdateRoleListOfUser(String userName, String[] deletedRoles, String[] newRoles)
             throws UserStoreException {
 
+        String[] userList = {userName};
+        addUsersToGroup("cn=G1.1,cn=G1,cn=GA,ou=HGroups,dc=WSO2,dc=ORG", userList);
+        
         // get the DN of the user entry
         String userNameDN = this.getNameInSpaceForUserName(userName);
         String membershipAttribute =

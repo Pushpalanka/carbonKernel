@@ -1,0 +1,52 @@
+version: 1
+
+dn: ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: organizationalUnit
+ou: HGroups
+
+dn: cn=GA,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: GA
+
+dn: cn=GB,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: GB
+
+dn: cn=G1,cn=GB,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G1
+
+dn: cn=G2,cn=GB,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G2
+
+dn: cn=G1,cn=GA,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G1
+
+dn: cn=G2,cn=GA,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G2
+
+dn: cn=G3,cn=GA,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G3
+
+dn: cn=G1.1,cn=G1,cn=GA,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G1.1
+
+dn: cn=G1.2,cn=G1,cn=GA,ou=HGroups,dc=WSO2,dc=ORG
+objectClass: top
+objectClass: groupOfNames
+cn: G1.2
+

@@ -89,6 +89,14 @@ public class LDAPConstants {
     public static final String SHARED_TENANT_NAME_LIST_FILTER = "SharedTenantNameListFilter";
     public static final String SHARED_TENANT_NAME_ATTRIBUTE = "SharedTenantNameAttribute";
     public static final String SHARED_TENANT_OBJECT_CLASS = "SharedTenantObjectClass";
+    
+    // HGroup specific constants
+    public final static String HGROUP_SEARCH_BASE = "HGroupSearchBase";
+    public final static String HGROUP_NAME_LIST_FILTER = "HGroupNameListFilter";
+    public final static String HGROUP_ENTRY_OBJECT_CLASS = "HGroupEntryObjectClass";
+    public final static String HGROUP_NAME_SEARCH_FILTER = "HGroupNameSearchFilter";
+    public final static String HGROUP_NAME_ATTRIUTE = "HGroupNameAttribute";
+    public final static String HGROUP_DN_PATTERN = "HGroupDNPattern";
 
 
 }

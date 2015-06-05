@@ -31,6 +31,7 @@ import org.wso2.carbon.user.core.UserRealm;
 import org.wso2.carbon.user.core.UserStoreException;
 import org.wso2.carbon.user.core.claim.ClaimManager;
 import org.wso2.carbon.user.core.common.AbstractUserStoreManager;
+import org.wso2.carbon.user.core.common.HGroupContext;
 import org.wso2.carbon.user.core.common.RoleContext;
 import org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager;
 import org.wso2.carbon.user.core.profile.ProfileConfigurationManager;
@@ -2867,6 +2868,20 @@ public class ReadOnlyLDAPUserStoreManager extends AbstractUserStoreManager {
         return super.isOwnRole(roleName);
     }
 
+    protected HGroupContext createHGroupContext(String groupName){
+        LDAPHGroupContext groupContext = new LDAPHGroupContext();
+        
+        Map<String, String> userStoreProperties = realmConfig.getUserStoreProperties();
+        groupContext.setSearchBase(userStoreProperties.get(LDAPConstants.HGROUP_SEARCH_BASE));
+        groupContext.setHgroupDNPatterns(userStoreProperties.get(LDAPConstants.HGROUP_DN_PATTERN));
+        groupContext.setSearchFilter(userStoreProperties.get(LDAPConstants.HGROUP_NAME_SEARCH_FILTER));
+        groupContext.setListFilter(userStoreProperties.get(LDAPConstants.HGROUP_NAME_LIST_FILTER));
+        groupContext.setHgroupNameProperty(userStoreProperties.get(LDAPConstants.HGROUP_NAME_ATTRIUTE));
+        groupContext.setHgroupEntryObjectClass(userStoreProperties.get(LDAPConstants.HGROUP_ENTRY_OBJECT_CLASS));
+
+        return groupContext;
+    }
+    
     protected RoleContext createRoleContext(String roleName) { // TODO check whether shared roles enable
 
         LDAPRoleContext roleContext = new LDAPRoleContext();
